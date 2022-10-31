@@ -35,7 +35,7 @@ export class App extends React.Component {
       return (
         <div className={css.form__wrapper}>
           <h2 className={css.form__title}>Phonebook</h2>
-          <Form onAddingContacts={addContacts} contacts={contacts} />
+          <Form addContacts={addContacts} contacts={contacts} />
           <h2 className={css.form__title}>Contacts</h2>
           <Filter filteredContent={filter} filterContact={filterContact} />
           <Contacts

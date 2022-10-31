@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './Contact.module.css';
 
-export const Contacts = ({ contacts, filteredContent, handleDelete }) => {
+export const Contacts = ({ contacts, filteredContent, deleteContact }) => {
     const filteredContacts = contacts.filter(({ name }) =>
         name.toLowerCase().includes(filteredContent.toLowerCase()));
     return (
@@ -17,7 +17,7 @@ export const Contacts = ({ contacts, filteredContent, handleDelete }) => {
             <button
               className={css.delete__btn}
               type="button"
-              onClick={() => handleDelete(id)}
+              onClick={() => deleteContact(id)}
             ></button>
           </>
         </li>
