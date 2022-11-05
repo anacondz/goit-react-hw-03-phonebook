@@ -10,6 +10,21 @@ export class App extends React.Component {
     filter: '',
   }
 
+  componentDidMount = () => {
+    const storage = localStorage.getItem('contacts');
+    const parsedStorage = JSON.parse(storage);
+    if (parsedStorage) {
+      this.setState({ contacts : parsedStorage})
+    }
+   };
+
+  componentDidUpdate = (prevProps, prevState) => {
+    const updatedState = this.state.contacts;
+    if (updatedState !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(updatedState));
+    }
+   }
+
   addContacts = newContact => {
     const contacts = this.state.contacts;
     contacts.find(contact => contact.name === newContact.name)
